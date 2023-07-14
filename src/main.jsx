@@ -1,10 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import WeatherComponent from './components/WeatherSearch.jsx';
 import './index.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import WeatherHome from './components/WeatherHome.jsx';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <WeatherHome />,
+  },
+  {
+    path: "/weather",
+    element: <WeatherComponent />,
+  },
+]);
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <>
-    <App />
-  </>,
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 )
