@@ -2,6 +2,11 @@
 
 A simple React application that fetches and displays weather information using the OpenWeatherMap API.
 
+## Demo
+
+https://64cf815df1f1823d60e8a9b7--singular-fudge-6187c0.netlify.app/
+
+
 ## Features
 
 - Fetches weather data based on the user-entered city.
