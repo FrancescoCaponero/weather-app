@@ -6,6 +6,7 @@ function Layout({children}) {
     flex 
     justify-center 
     items-center
+    min-w-screen
     bg-pattern">
       <div className="
       bg-pattern-card

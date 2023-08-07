@@ -25,7 +25,6 @@ const WeatherSearch = () => {
     setIsLoading(true);
     try {
       const data = await fetchWeatherData(city);
-      console.log(data);
       setWeatherData(data);
       setError(null);
       localStorage.setItem('weatherData', JSON.stringify(data));
@@ -50,7 +49,18 @@ const WeatherSearch = () => {
             </div>
           </div>
         ) : (
-          <p className='font-light text-white text-[1.6rem] leading-7'>{error && 'We don\'t know this city'} &#128531;</p>
+          <div className='max-w-[20rem] flex items-center justify-center'>
+            {error && (
+              <p className='font-light text-white text-[1.6rem] leading-7'>
+                We don't know this city &#128531;
+              </p>
+            )}
+            {!weatherData && !error && (
+              <p className='font-light text-white text-[1.6rem] leading-7'>
+                Please enter a city name to get the weather &#128526;
+              </p>
+            )}
+          </div>
         )}
         <form onSubmit={handleFormSubmit} className='absolute md:bottom-10 bottom-20 flex items-center justify-center md:block flex flex-col gap-10'>
           <input type="text" value={city} onChange={handleInputChange} placeholder="Insert Location" 
